@@ -6,51 +6,46 @@
 
 ;◆AHK config
 ;Reload
-vk1Dsc07 & F5::Reload
+vk1D & F5::Reload
 
+; 無効
+ScrollLock::Return
 
-;◆IME config 
-#Include IME.ahk
-;@see [https://github.com/karakaram/alt-ime-ahk/blob/master/IME.ahk]
-;変換 > 日本語入力
-vk1Csc079::IME_SET(1)
-;無変換 > 英数
-vk1Dsc07::IME_SET(0)
+; 変換
+vkE2::Send,_
 
-
-;◆無変換function
-vk1Dsc07 & 2::Send,{F2}
-
-
-;◆vim config
+; スペースの同時押し
 Space::Send,{Blind}{Space}
-+Space::Send,{Blind}+{Space}
-Space & vk1Csc079::Send,{Blind}
++Space::Send,{Blind}{Space}
+!Space::Send,{Blind}{Space}
+^Space::Send,{Blind}{Space}
+; スペース＋変換
+Space & vk1C::Send,{Blind}
 
 ; H J K L
 Space & h::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}^+{Tab}
   Else
     Send,{Blind}{Left}
   Return
 
 Space & j::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}{PgDn}
   Else
     Send,{Blind}{Down}
   Return
 
 Space & k::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}{PgUp}
   Else
     Send,{Blind}{Up}
   Return
 
 Space & l::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}^{Tab}
   Else
     Send,{Blind}{Right}
@@ -58,7 +53,7 @@ Space & l::
 
 ; I
 Space & i::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}+{Home}{Delete}
   Else
     Send,{Blind}{Home}
@@ -66,7 +61,7 @@ Space & i::
 
 ; A
 Space & a::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}+{End}{Delete}
   Else
     Send,{Blind}{End}
@@ -74,7 +69,7 @@ Space & a::
 
 ; W
 Space & w::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}^+{Right}{Delete}
   Else
     Send,{Blind}^{Right}
@@ -82,7 +77,7 @@ Space & w::
 
 ; B
 Space & b::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}^+{Left}{Delete}
   Else
     Send,{Blind}^{Left}
@@ -90,7 +85,7 @@ Space & b::
 
 ; O
 Space & o::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}{Home}{Home}{Enter}{Up}
   Else
     Send,{Blind}{End}{Enter}
@@ -98,7 +93,7 @@ Space & o::
 
 ; G
 Space & g::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}^{End}
   Else
     Send,{Blind}^{Home}
@@ -112,7 +107,7 @@ Space & x::Send,{Blind}{Delete}
 
 ; Delete
 Space & d::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}{Home}{Home}+{End}^x
   Else
     Send,{Blind}^x
@@ -120,7 +115,7 @@ Space & d::
 
 ; Yank
 Space & y::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}{Home}{Home}+{End}^c
   Else
     Send,{Blind}^c
@@ -131,7 +126,7 @@ Space & p::Send,{Blind}^v
 
 ; Undo
 Space & u::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,{Blind}^y
   Else
     Send,{Blind}^z
@@ -142,10 +137,41 @@ Space & s::Send,^s
 
 ; Quit
 Space & q::
-  If GetKeyState("vk1Csc079","P")
+  If GetKeyState("vk1C","P")
     Send,!{F4}
   Else
     Send,^w
   Return
 
+; 検索
+Space & /::Send,^{f}
+; 次を検索
+Space & n::Send,{Blind}{F3}
 
+; AltTab
+Space & e::AltTab
+
+; タブ移動
+Space & t::
+  If GetKeyState("vk1C","P")
+    Send,^+{Tab}
+  Else
+    Send,^{Tab}
+  Return
+
+; 右クリック
+Space & @::Send,{AppsKey}
+
+; ファンクションキー
+vk1D & 1::Send,{F1}
+vk1D & 2::Send,{F2}
+vk1D & 3::Send,{F3}
+vk1D & 4::Send,{F4}
+vk1D & 5::Send,{F5}
+vk1D & 6::Send,{F6}
+vk1D & 7::Send,{F7}
+vk1D & 8::Send,{F8}
+vk1D & 9::Send,{F9}
+vk1D & 0::Send,{F10}
+vk1D & -::Send,{F11}
+vk1D & ^::Send,{F12}
