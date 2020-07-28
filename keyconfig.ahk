@@ -1,31 +1,30 @@
-;ŸBase config
+;â—†Base config
 ;CapsLock > Ctrl
-; ƒL[‚ª‚¨‚µ‚Á‚Ï‚È‚µ‚Æ‚È‚Á‚Ä³í‚É“®ì‚µ‚È‚¢‚½‚ßAƒŒƒWƒXƒgƒŠ‚Åİ’è‚·‚é
+; ã‚­ãƒ¼ãŒãŠã—ã£ã±ãªã—ã¨ãªã£ã¦æ­£å¸¸ã«å‹•ä½œã—ãªã„ãŸã‚ã€ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã§è¨­å®šã™ã‚‹
 ;Capslock::Ctrl
 ;sc03a::Ctrl
 
-;ŸAHK config
-;Reload
-vk1D & F5::Reload
-
-; –³Œø
+; ç„¡åŠ¹
 ScrollLock::Return
 
-; •ÏŠ·
+; å¤‰æ›
 vkE2::Send,_
 
-; ƒXƒy[ƒX‚Ì“¯‰Ÿ‚µ
+; ã‚¹ãƒšãƒ¼ã‚¹
 Space::Send,{Blind}{Space}
 +Space::Send,{Blind}{Space}
 !Space::Send,{Blind}{Space}
 ^Space::Send,{Blind}{Space}
-; ƒXƒy[ƒX{•ÏŠ·
+; åŒæ™‚æŠ¼ã—ã§IMEåˆ‡ã‚Šæ›¿ãˆã‚’è¡Œã‚ã›ãªã„
 Space & vk1C::Send,{Blind}
+; ï¼Ÿ
+vk1D::Send,{Blind}{vk1D}
 
 ; H J K L
 Space & h::
   If GetKeyState("vk1C","P")
-    Send,{Blind}^+{Tab}
+    ;Send,{Blind}^+{Tab}
+    Send,{Blind}!{Left}
   Else
     Send,{Blind}{Left}
   Return
@@ -46,10 +45,21 @@ Space & k::
 
 Space & l::
   If GetKeyState("vk1C","P")
-    Send,{Blind}^{Tab}
+    ;Send,{Blind}^{Tab}
+    Send,{Blind}!{Right}
   Else
     Send,{Blind}{Right}
   Return
+
+vk1D & h::Send,{Blind}!{Left}
+vk1D & j::Send,{Blind}!{Down}
+vk1D & k::Send,{Blind}!{Up}
+vk1D & l::Send,{Blind}!{Right}
+
+;vk1D & h::Send,{Blind}^+{Tab}
+;vk1D & j::Send,{Blind}{PgDn}
+;vk1D & k::Send,{Blind}{PgUp}
+;vk1D & l::Send,{Blind}^{Tab}
 
 ; I
 Space & i::
@@ -135,6 +145,9 @@ Space & u::
 ; Save
 Space & s::Send,^s
 
+; ESC
+Space & [::Send,{Esc}
+
 ; Quit
 Space & q::
   If GetKeyState("vk1C","P")
@@ -143,15 +156,15 @@ Space & q::
     Send,^w
   Return
 
-; ŒŸõ
+; æ¤œç´¢
 Space & /::Send,^{f}
-; Ÿ‚ğŒŸõ
+; æ¬¡ã‚’æ¤œç´¢
 Space & n::Send,{Blind}{F3}
 
 ; AltTab
 Space & e::AltTab
 
-; ƒ^ƒuˆÚ“®
+; ã‚¿ãƒ–ç§»å‹•
 Space & t::
   If GetKeyState("vk1C","P")
     Send,^+{Tab}
@@ -159,19 +172,19 @@ Space & t::
     Send,^{Tab}
   Return
 
-; ‰EƒNƒŠƒbƒN
+; å³ã‚¯ãƒªãƒƒã‚¯
 Space & @::Send,{AppsKey}
 
-; ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“ƒL[
-vk1D & 1::Send,{F1}
-vk1D & 2::Send,{F2}
-vk1D & 3::Send,{F3}
-vk1D & 4::Send,{F4}
-vk1D & 5::Send,{F5}
-vk1D & 6::Send,{F6}
-vk1D & 7::Send,{F7}
-vk1D & 8::Send,{F8}
-vk1D & 9::Send,{F9}
-vk1D & 0::Send,{F10}
-vk1D & -::Send,{F11}
-vk1D & ^::Send,{F12}
+; ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ã‚­ãƒ¼
+Space & 1::Send,{F1}
+Space & 2::Send,{F2}
+Space & 3::Send,{F3}
+Space & 4::Send,{F4}
+Space & 5::Send,{F5}
+Space & 6::Send,{F6}
+Space & 7::Send,{F7}
+Space & 8::Send,{F8}
+Space & 9::Send,{F9}
+Space & 0::Send,{F10}
+Space & -::Send,{F11}
+Space & ^::Send,{F12}
