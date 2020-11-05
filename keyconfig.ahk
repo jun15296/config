@@ -23,10 +23,16 @@ vk1D::Send,{Blind}{vk1D}
 ; H J K L
 Space & h::
   If GetKeyState("vk1C","P")
-    ;Send,{Blind}^+{Tab}
     Send,{Blind}!{Left}
   Else
     Send,{Blind}{Left}
+  Return
+
+Space & l::
+  If GetKeyState("vk1C","P")
+    Send,{Blind}!{Right}
+  Else
+    Send,{Blind}{Right}
   Return
 
 Space & j::
@@ -41,14 +47,6 @@ Space & k::
     Send,{Blind}{PgUp}
   Else
     Send,{Blind}{Up}
-  Return
-
-Space & l::
-  If GetKeyState("vk1C","P")
-    ;Send,{Blind}^{Tab}
-    Send,{Blind}!{Right}
-  Else
-    Send,{Blind}{Right}
   Return
 
 vk1D & h::Send,{Blind}!{Left}
@@ -78,7 +76,7 @@ Space & a::
   Return
 
 ; W
-Space & w::
+Space & e::
   If GetKeyState("vk1C","P")
     Send,{Blind}^+{Right}{Delete}
   Else
@@ -162,7 +160,7 @@ Space & /::Send,^{f}
 Space & n::Send,{Blind}{F3}
 
 ; AltTab
-Space & e::AltTab
+Space & w::AltTab
 
 ; タブ移動
 Space & t::
